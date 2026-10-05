@@ -1,0 +1,47 @@
+name: fusion-cloud
+services:
+  api:
+    build: .
+    restart: unless-stopped
+    environment:
+      MAX_FILE_BYTES: ${MAX_FILE_BYTES:-2147483648}
+      ACCOUNT_QUOTA_BYTES: ${ACCOUNT_QUOTA_BYTES:-21474836480}
+      SESSION_SECONDS: 2592000
+    volumes:
+      - cloud_data:/data
+    networks: [private]
+    security_opt: [no-new-privileges:true]
+    cap_drop: [ALL]
+    read_only: true
+    tmpfs: [/tmp:size=64m]
+    logging:
+      driver: json-file
+      options: {max-size: "10m", max-file: "3"}
+  proxy:
+    image: caddy:2
+    restart: unless-stopped
+    depends_on:
+      api:
+        condition: service_healthy
+    environment:
+      SITE_ADDRESS: ${SITE_ADDRESS:?Run install.sh first}
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./tls-mode.conf:/etc/caddy/tls-mode.conf:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    networks: [private, edge]
+    logging:
+      driver: json-file
+      options: {max-size: "10m", max-file: "3"}
+networks:
+  private:
+    internal: true
+  edge: {}
+volumes:
+  cloud_data: {}
+  caddy_data: {}
+  caddy_config: {}

@@ -1,0 +1,8 @@
+tests
+backups
+.env
+*.zip
+__pycache__
+.pytest_cache
+tls-mode.conf
+client-ca.crt

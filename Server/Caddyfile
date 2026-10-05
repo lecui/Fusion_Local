@@ -1,0 +1,11 @@
+{$SITE_ADDRESS} {
+    import /etc/caddy/tls-mode.conf
+    request_body {
+        max_size 2GB
+    }
+    reverse_proxy api:8000
+    header {
+        X-Content-Type-Options nosniff
+        Referrer-Policy no-referrer
+    }
+}
