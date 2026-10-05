@@ -1,0 +1,186 @@
+{
+  "version": "2026-10-05",
+  "target": "Fusion Portable 2703.1.20 x64 300726",
+  "files": [
+    {
+      "path": "PortableData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/HomeModels/HomeModels.manifest",
+      "bytes": 262,
+      "sha256": "b8c454964913d1a1ea95d8fbebfbd68304adb930517a0e872366473db7f974f7"
+    },
+    {
+      "path": "PortableData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/HomeModels/HomeModels.py",
+      "bytes": 15084,
+      "sha256": "21280d722e367a73456777bc6e285c1200b5355d0b9637d87b8d2f4c909ea368"
+    },
+    {
+      "path": "PortableData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/HomeModels/config.json",
+      "bytes": 98,
+      "sha256": "cea50fb7c0e35c53d029424831583e989247a5e6cede9d838f5a1139417c776f"
+    },
+    {
+      "path": "PortableData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/LocalFolders/CacheMaintenance.py",
+      "bytes": 1990,
+      "sha256": "712046c6f2334ef2b7192b1d55049f4226ce6c69f77b9f1f13cf925644044200"
+    },
+    {
+      "path": "PortableData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/LocalFolders/CloudConnection.py",
+      "bytes": 15575,
+      "sha256": "98b275ea591283916b209b65ce952efbf22504281cef6a5a2317a0cd2f719050"
+    },
+    {
+      "path": "PortableData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/LocalFolders/CloudDeletion.py",
+      "bytes": 4006,
+      "sha256": "25d3d160c47a2ff97464d58ce4876d86b4b8baebf2d30e2be54131d8f1bf60bf"
+    },
+    {
+      "path": "PortableData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/LocalFolders/CloudSync.py",
+      "bytes": 21599,
+      "sha256": "2a3f07067adcbbe1f2c6e556e9812b0831b04ab74aa8948ac2e32633fbf0ead1"
+    },
+    {
+      "path": "PortableData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/LocalFolders/DocumentNames.py",
+      "bytes": 2063,
+      "sha256": "1805c560b497a0baffcee4b3e2b67707bc154af29266ba3a55829fe6ce7d6e3b"
+    },
+    {
+      "path": "PortableData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/LocalFolders/HomeModelsBridge.py",
+      "bytes": 2667,
+      "sha256": "06a73f30f15e64b62e308c8c93d1bf672172127035a412566d07a1b7b4d41b89"
+    },
+    {
+      "path": "PortableData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/LocalFolders/LocalDocumentMetadata.py",
+      "bytes": 3569,
+      "sha256": "314967850a0d509995d9b11658cae852efca347e9aabae1b188c5a097b76dc99"
+    },
+    {
+      "path": "PortableData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/LocalFolders/LocalFolderBridge.py",
+      "bytes": 8463,
+      "sha256": "07932e95eeeb6223caa2c9f958d7e9ddba797db3e706b45383cde6767d27932a"
+    },
+    {
+      "path": "PortableData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/LocalFolders/LocalFolders.manifest",
+      "bytes": 265,
+      "sha256": "99eaed3fb2a1ec1bc397c187d0635b95bbf82b82f16330a5bcc0bb143cf3a287"
+    },
+    {
+      "path": "PortableData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/LocalFolders/LocalFolders.py",
+      "bytes": 59,
+      "sha256": "09c4a7dc287a4acf73be5a42631be283861bc0cbbbfedade11dff1c305e26835"
+    },
+    {
+      "path": "PortableData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/LocalFolders/ModelBridge.py",
+      "bytes": 4332,
+      "sha256": "2f0843200523936c84c4489418077dfc9300bba2da0a56bb62b87c32522070ba"
+    },
+    {
+      "path": "PortableData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/LocalFolders/NativeServerMenu.dll",
+      "bytes": 134144,
+      "sha256": "fcc8d6d07bb09bd6aad77adc1618c6aae29faa668306e9a8e24d3f0976847aef"
+    },
+    {
+      "path": "PortableData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/LocalFolders/ProjectExport.py",
+      "bytes": 8882,
+      "sha256": "6648ab9cd865acee9b80d6cb28b41a96c722199168cf048d493e483280e58de7"
+    },
+    {
+      "path": "PortableData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/LocalFolders/ProjectExportUI3.dll",
+      "bytes": 77312,
+      "sha256": "ffb8e9f2fc7f1e3be9463a737669add7e5fc546ca0ce529a699571fddc959bba"
+    },
+    {
+      "path": "PortableData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/LocalFolders/ServerIcons/offline/16x16.svg",
+      "bytes": 698,
+      "sha256": "ca1bfc15388a7d7b5e87aef4a39dd3e6e4eef5abfa4835ca6e853e355fa7e286"
+    },
+    {
+      "path": "PortableData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/LocalFolders/ServerIcons/offline/32x32.svg",
+      "bytes": 698,
+      "sha256": "6e3dd528258c9e9ce126f479efefb9eb7ad764b3eb6887411af7c6d1a210a170"
+    },
+    {
+      "path": "PortableData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/LocalFolders/ServerIcons/offline/64x64.svg",
+      "bytes": 698,
+      "sha256": "6f27d800fa4cd201ee26ce9bf5009a8e392e79077a0857cf992ee6062dbff393"
+    },
+    {
+      "path": "PortableData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/LocalFolders/ServerIcons/online/16x16.svg",
+      "bytes": 698,
+      "sha256": "525063401e013ea8efc90172e58584d39f2b7028b016db69a62f23310fd525ea"
+    },
+    {
+      "path": "PortableData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/LocalFolders/ServerIcons/online/32x32.svg",
+      "bytes": 698,
+      "sha256": "179183bd86a70575a937cb6b14a69901c3f14b307d8a68fb8b2ece1cea7df102"
+    },
+    {
+      "path": "PortableData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/LocalFolders/ServerIcons/online/64x64.svg",
+      "bytes": 698,
+      "sha256": "e278d9beb37f07bb6f6013f6e1cdcbe265c382d1675412710b58328f2f3e247a"
+    },
+    {
+      "path": "PortableData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/LocalFolders/ServerPanel.py",
+      "bytes": 4561,
+      "sha256": "48d68d3aeb799b760b6dbc6c0a0529770c077d0f8cec79e294b9dd35045b85f8"
+    },
+    {
+      "path": "PortableData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/LocalFolders/SyncBridge.py",
+      "bytes": 1823,
+      "sha256": "f4c82d482bac6071791b1bfe424b43d0f5684aa4bae21a9ff12b985d811559f5"
+    },
+    {
+      "path": "PortableData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/LocalFolders/SyncGuard.py",
+      "bytes": 2581,
+      "sha256": "d9a3080dd83becf7ca59f7ac045792b31cf3400c0041d7f6ccc15cc71d50a62a"
+    },
+    {
+      "path": "PortableData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/LocalFolders/TrashBridge.py",
+      "bytes": 8305,
+      "sha256": "3b72a6f819be8e0d204d358e021b9bbd0153c0c961def868a4a67e498e4ce246"
+    },
+    {
+      "path": "PortableData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/LocalFolders/cache_codec.py",
+      "bytes": 5640,
+      "sha256": "4ba9438a157fd6fe444feefa0050934882627a787deaeadda283f199f229cffa"
+    },
+    {
+      "path": "PortableData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/LocalFolders/config.json",
+      "bytes": 98,
+      "sha256": "ab272b719c56a0cb227987b6b90996859b1ea4fbe7d0d5a9ff058d67d30b6373"
+    },
+    {
+      "path": "PortableData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/LocalFolders/file_codec.py",
+      "bytes": 1746,
+      "sha256": "f15bbb3c6dca7543bcd486b1a888c5e44e0734080e4407585edb6de0835d1392"
+    },
+    {
+      "path": "PortableData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/LocalFolders/folder_operations.py",
+      "bytes": 3145,
+      "sha256": "b4d1530009eaa1f62cf715dc4271ba000d8fddda35b512b9fab133bc97f1a1ac"
+    },
+    {
+      "path": "PortableData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/LocalFolders/model_operations.py",
+      "bytes": 4687,
+      "sha256": "72a3356ae6404200fb67eee767e7f52b7053854121af0ebc2794155f6cd53b32"
+    },
+    {
+      "path": "PortableData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/LocalFolders/native_cache.py",
+      "bytes": 5166,
+      "sha256": "a519de4ef4d778db87c8a7e057ce1db46792432cf1b4fc6612e1fea000be5409"
+    },
+    {
+      "path": "README-FULL-PATCH.txt",
+      "bytes": 5726,
+      "sha256": "41ba179286397ec3de6d5746108e11deff85b93d77b8ba4dd10b7117eba99ccf"
+    },
+    {
+      "path": "bin/FusionCDEHostApps/fusion-home-tab/bundle.4cef078ae5b7b7298063.js",
+      "bytes": 1093756,
+      "sha256": "ea467fdd8258878d7cad1954b82917e3e25f95fb963d6b3304759f5556c311d4"
+    },
+    {
+      "path": "bin/OfflineJS/OfflineJS.zip",
+      "bytes": 3012770,
+      "sha256": "6a8037d753e4e4a99991f9263a367113a91c515e52b46d2035d384d9e1a07c1f"
+    }
+  ]
+}

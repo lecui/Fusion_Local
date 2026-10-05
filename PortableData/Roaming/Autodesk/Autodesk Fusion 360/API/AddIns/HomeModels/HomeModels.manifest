@@ -1,0 +1,1 @@
+{"autodeskProduct": "Fusion", "type": "addin", "id": "825f6635-9bf1-498a-ac31-a29399984ec2", "author": "Local", "description": {"": "Local model management in Fusion Home"}, "version": "1.0.0", "runOnStartup": true, "supportedOS": "windows", "editEnabled": true}

@@ -1,0 +1,1 @@
+{"autodeskProduct": "Fusion", "type": "addin", "id": "a17a7f3b-a903-4fa7-910b-b284ab3ff2d5", "author": "Local", "description": {"": "Create local folders in Fusion Portable"}, "version": "1.0.0", "runOnStartup": false, "supportedOS": "windows", "editEnabled": true}
