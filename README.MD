@@ -4,6 +4,8 @@
 
 Предварительный выпуск **2026.10.05-preview.1**. Незавершённое исправление STEP в выпуск не включено.
 
+Исклюсительно для проекта https://rutracker.org/forum/viewtopic.php?t=6881157
+
 - **[Client](Client/README.md)** — патч для копирования поверх `FusionPortable`: локальные модели, корзина, подключение, синхронизация и офлайн-очередь.
 - **[Server](Server/README.md)** — Python API, HTTPS-прокси, Docker Compose и скрипты обслуживания VPS.
 - **[Все изменения](Client/CHANGELOG.md)**.
