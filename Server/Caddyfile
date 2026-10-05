@@ -1,3 +1,7 @@
+{
+    default_sni {$SITE_ADDRESS}
+}
+
 {$SITE_ADDRESS} {
     import /etc/caddy/tls-mode.conf
     request_body {

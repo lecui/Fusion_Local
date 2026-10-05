@@ -1,7 +1,17 @@
 {
-  "version": "2026-10-05",
+  "version": "2026.10.05-preview.1",
   "target": "Fusion Portable 2703.1.20 x64 300726",
   "files": [
+    {
+      "path": "BUGREPORT.md",
+      "bytes": 6931,
+      "sha256": "6d654247ec5a584eafc3b71f646eac295982863e18c4d985d97774b406d41fb3"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 11400,
+      "sha256": "b7ab7a274eefb31104f0c305887935301bed0a913e90b382a1e4849c29182970"
+    },
     {
       "path": "PortableData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/HomeModels/HomeModels.manifest",
       "bytes": 262,
@@ -168,9 +178,9 @@
       "sha256": "a519de4ef4d778db87c8a7e057ce1db46792432cf1b4fc6612e1fea000be5409"
     },
     {
-      "path": "README-FULL-PATCH.txt",
-      "bytes": 5726,
-      "sha256": "41ba179286397ec3de6d5746108e11deff85b93d77b8ba4dd10b7117eba99ccf"
+      "path": "README.md",
+      "bytes": 15473,
+      "sha256": "64ca3b63f607efb380d81d474c2c89abcb1de1076609f73242673ae926c7c088"
     },
     {
       "path": "bin/FusionCDEHostApps/fusion-home-tab/bundle.4cef078ae5b7b7298063.js",

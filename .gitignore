@@ -1,0 +1,14 @@
+__pycache__/
+.pytest_cache/
+.venv/
+*.pyc
+/dist/
+/Server/.env
+/Server/tls-mode.conf
+/Server/client-ca.crt
+/Server/backups/
+/Server/data/
+/Server/tls-data/
+/Server/Caddyfile.before-ip-fix.*
+*.reload-recovery
+*.log

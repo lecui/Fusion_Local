@@ -6,3 +6,7 @@ __pycache__
 .pytest_cache
 tls-mode.conf
 client-ca.crt
+.venv
+.git
+data
+tls-data
