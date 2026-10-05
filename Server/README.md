@@ -147,32 +147,3 @@ sudo docker compose up -d --wait --wait-timeout 180
 | 401 | Сессия отозвана/истекла, нужен новый вход |
 | 412 | Конфликт версии ETag; обновите список и сохраните конфликтующие копии отдельно |
 | 413 / 507 | Лимит файла / квота; проверьте также свободное место VPS |
-
-## API и проверки
-
-Операции приложения, кроме `/healthz` и `/v1/login`, требуют `Authorization: Bearer TOKEN`; служебный WebDAV OPTIONS допускается отдельно.
-
-```text
-POST /v1/login       {username, password, device}
-GET  /v1/session
-POST /v1/logout
-GET  /v1/files
-GET  /v1/sync-index
-GET  /v1/trash
-POST /v1/restore     {path, etag}
-POST /v1/purge       {path, etag, confirm: true}
-GET/HEAD/PUT/DELETE/MKCOL/MOVE/PROPFIND /dav/<path>
-```
-
-Первый PUT: `If-None-Match: *`; замена/удаление: `If-Match` с текущим ETag. Без нужного условия — 428, при конфликте — 412. DELETE отправляет запись в корзину. Purge удаляет серверные версии, но не административные backups. URL кодируется UTF-8 percent-encoding.
-
-Для тестов в отдельном окружении:
-
-```bash
-python3 -m venv .venv
-. .venv/bin/activate
-pip install -r requirements-test.txt
-pytest tests -q
-```
-
-При подготовке выпуска прошли 6 серверных тестов. Развёртывание Docker/TLS на VPS и восстановление backup в этой проверке не выполнялись; перед восстановлением единственной копии проверьте процедуру на отдельной установке.

@@ -12,3 +12,6 @@ __pycache__/
 /Server/Caddyfile.before-ip-fix.*
 *.reload-recovery
 *.log
+
+# Local maintainer instructions; never publish
+/MAINTAINER.local.md
