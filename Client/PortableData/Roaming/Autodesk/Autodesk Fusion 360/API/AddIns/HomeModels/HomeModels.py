@@ -154,6 +154,8 @@ class Saved(adsk.core.DocumentEventHandler):
 
 class Opened(adsk.core.DocumentEventHandler):
     def notify(self,args):
+        import ProjectExport
+        if getattr(ProjectExport,"_clean_export_active",False):return
         path=args.fullPath
         try:
             import DocumentNames

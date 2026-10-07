@@ -1,16 +1,16 @@
 {
-  "version": "2026.10.05-preview.1",
+  "version": "2026.10.07-preview.1",
   "target": "Fusion Portable 2703.1.20 x64 300726",
   "files": [
     {
       "path": "BUGREPORT.md",
-      "bytes": 6931,
-      "sha256": "6d654247ec5a584eafc3b71f646eac295982863e18c4d985d97774b406d41fb3"
+      "bytes": 6661,
+      "sha256": "3fb4aaee54183c88af6429013e2b9bccb2e3eb95524a4de4543b1c32bc9d309d"
     },
     {
       "path": "CHANGELOG.md",
-      "bytes": 11400,
-      "sha256": "b7ab7a274eefb31104f0c305887935301bed0a913e90b382a1e4849c29182970"
+      "bytes": 13900,
+      "sha256": "0a1c21569c9d9163193018d1070e604838e72cb22a3238a4b39f2c7f4e334eab"
     },
     {
       "path": "PortableData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/HomeModels/HomeModels.manifest",
@@ -19,8 +19,8 @@
     },
     {
       "path": "PortableData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/HomeModels/HomeModels.py",
-      "bytes": 15084,
-      "sha256": "21280d722e367a73456777bc6e285c1200b5355d0b9637d87b8d2f4c909ea368"
+      "bytes": 15194,
+      "sha256": "c99af298976c928f8bde4a7735a73be98aa04e8ae1e502fdecfd3c4a8cbc8da8"
     },
     {
       "path": "PortableData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/HomeModels/config.json",
@@ -44,8 +44,8 @@
     },
     {
       "path": "PortableData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/LocalFolders/CloudSync.py",
-      "bytes": 21599,
-      "sha256": "2a3f07067adcbbe1f2c6e556e9812b0831b04ab74aa8948ac2e32633fbf0ead1"
+      "bytes": 22037,
+      "sha256": "b55bc9da2ab94f1b8790348d30d6c985566e2049712a46d3b603ab5c0f734cc8"
     },
     {
       "path": "PortableData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/LocalFolders/DocumentNames.py",
@@ -89,13 +89,13 @@
     },
     {
       "path": "PortableData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/LocalFolders/ProjectExport.py",
-      "bytes": 8882,
-      "sha256": "6648ab9cd865acee9b80d6cb28b41a96c722199168cf048d493e483280e58de7"
+      "bytes": 14955,
+      "sha256": "4b4453b5c9d7958d038c51d98890c99b30ecedf47f0a8788255378f32f94d5eb"
     },
     {
       "path": "PortableData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/LocalFolders/ProjectExportUI3.dll",
-      "bytes": 77312,
-      "sha256": "ffb8e9f2fc7f1e3be9463a737669add7e5fc546ca0ce529a699571fddc959bba"
+      "bytes": 89600,
+      "sha256": "3aca6ceb592faca021f3912d12d961a06ad2486b9f47d4cf1c45f0f6eb49da18"
     },
     {
       "path": "PortableData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/LocalFolders/ServerIcons/offline/16x16.svg",
@@ -179,18 +179,18 @@
     },
     {
       "path": "README.md",
-      "bytes": 15473,
-      "sha256": "64ca3b63f607efb380d81d474c2c89abcb1de1076609f73242673ae926c7c088"
+      "bytes": 16778,
+      "sha256": "b3e696a3320ac37f62b24b9876b2998fc13044995685b961a87d2aa017aaaacc"
     },
     {
       "path": "bin/FusionCDEHostApps/fusion-home-tab/bundle.4cef078ae5b7b7298063.js",
-      "bytes": 1093756,
-      "sha256": "ea467fdd8258878d7cad1954b82917e3e25f95fb963d6b3304759f5556c311d4"
+      "bytes": 1094852,
+      "sha256": "9346d4167ce96ac7293f5d75ca2652763cbab479ef3dfb81e697d593d4ae1d14"
     },
     {
       "path": "bin/OfflineJS/OfflineJS.zip",
-      "bytes": 3012770,
-      "sha256": "6a8037d753e4e4a99991f9263a367113a91c515e52b46d2035d384d9e1a07c1f"
+      "bytes": 3012999,
+      "sha256": "d728719018ca52b9b4875d6103d924d232fdea978c08f1eed5b12ef9dad3c6b0"
     }
   ]
 }

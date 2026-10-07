@@ -4,7 +4,7 @@ import hashlib,io,json,zipfile
 
 ROOT=Path(__file__).resolve().parents[1]
 CLIENT=ROOT/'Client'
-VERSION='2026.10.05-preview.1'
+VERSION='2026.10.07-preview.1'
 
 def digest(data):return hashlib.sha256(data).hexdigest()
 

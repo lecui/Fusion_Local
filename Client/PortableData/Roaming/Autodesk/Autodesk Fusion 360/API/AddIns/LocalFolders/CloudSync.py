@@ -147,8 +147,13 @@ def install_new(native,cache_path,data,root,mid,meta,download):
     record['key']=target.as_posix();record['0x28']=target.as_posix();record['0x1c8']=target.as_posix();record['0x48']=folder['key'];record['0x88']=name;record['0xe8']=int(time.time()*1000)
     record['0x68']='' # A local model's project is determined by its parent folder.
     folder_records=[copy.deepcopy(d) for d,_,_ in folders];dest=next(d for d in folder_records if d['key']==folder['key'])
+    # A missing physical file can still have catalog records. Replace those
+    # records instead of appending another reference when downloading again.
+    replaced={identity(d['key']) for d,_,_ in files if ntpath.isabs(d['key']) and model_id(d['key'])==mid}
+    for row in folder_records:
+        for field in ('files','other'):row[field]=[key for key in row[field] if identity(key) not in replaced]
     dest['files'].append(target.as_posix());dest['other'].append(target.as_posix());dest['0xe8']=record['0xe8']
-    file_records=[copy.deepcopy(d) for d,_,_ in files]+[record]
+    file_records=[copy.deepcopy(d) for d,_,_ in files if identity(d['key']) not in replaced]+[record]
     changed=data[:start-12]+u32(1)+u64(len(folder_records))+b''.join(write_folder(d) for d in folder_records)+data[end:fs]+u32(1)+u64(len(file_records))+b''.join(write_file(d) for d in file_records)+data[fe:]
     folder_container(changed);file_container(changed)
     temp_cache=cache_path.with_suffix('.sync.tmp');temp_cache.write_bytes(changed)

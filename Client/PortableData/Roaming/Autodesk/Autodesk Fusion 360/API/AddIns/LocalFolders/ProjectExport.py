@@ -93,6 +93,13 @@ def repair_local_records():
     return ids+LocalDocumentMetadata.ensure(changed,cache.parent/'W.login'/'F')
 
 def execute(app,payload):
+    if payload['operation']=='clean-file-export':return clean_file_export(app,payload)
+    if payload['operation']=='file-export-kind':
+        token=prepare(app,payload.get('sourceName',''))
+        doc,component=_sessions.pop(token)
+        import adsk.fusion
+        design=adsk.fusion.Design.cast(doc.products.itemByProductType('DesignProductType'))
+        return {'ok':True,'wholeModel':component==design.rootComponent}
     native=NativeCache();native.flush();cache=native.path()
     if cache.name!='NsCloudBrowserCache_local.dat':raise ValueError('Не найден локальный каталог Fusion')
     data=cache.read_bytes()
@@ -145,3 +152,75 @@ def execute(app,payload):
         for item in (exported,preview,staging/'catalog.dat'):item.unlink(missing_ok=True)
         try:staging.rmdir()
         except OSError:pass
+
+
+_clean_export_active=False
+
+def clean_file_export(app,payload):
+    """Save the whole document, then translate its actual F3D file, without an F3D copy."""
+    import tempfile,logging
+    import adsk.fusion
+    global _clean_export_active
+    if _clean_export_active:raise ValueError('Экспорт уже выполняется')
+    formats={'step':('createSTEPExportOptions',False),'stp':('createSTEPExportOptions',False),
+             'iges':('createIGESExportOptions',False),'igs':('createIGESExportOptions',False),
+             'sat':('createSATExportOptions',False),'smt':('createSMTExportOptions',False),
+             'stl':('createSTLExportOptions',True),'3mf':('createC3MFExportOptions',True)}
+    extension=payload.get('format','').lower()
+    if extension not in formats:raise ValueError('Формат не поддерживает экспорт через F3D')
+    name=payload.get('name','').strip()
+    if not name or name in ('.','..') or any(ord(c)<32 or c in '/\\:*?"<>|' for c in name) or name.endswith(('.', ' ')):
+        raise ValueError('Недопустимое имя файла')
+    if not name.lower().endswith('.'+extension):name+='.'+extension
+    directory=pathlib.Path(payload.get('directory',''))
+    if not directory.is_absolute() or not directory.is_dir():raise ValueError('Выберите существующую папку на компьютере')
+    target=directory/name
+    if target.exists() and not payload.get('overwrite',False):raise ValueError('Файл уже существует. Подтвердите замену.')
+    scope=prepare(app,payload.get('sourceName',''))
+    doc,component=_sessions.pop(scope)
+    design=adsk.fusion.Design.cast(doc.products.itemByProductType('DesignProductType'))
+    if component!=design.rootComponent:raise ValueError('Для компонентов используйте штатный экспорт')
+    if not doc.isSaved or not doc.dataFile:raise ValueError('Сначала сохраните новую модель в локальный проект, затем повторите экспорт')
+    source=pathlib.Path(doc.dataFile.id)
+    if not source.is_absolute() or source.suffix.lower()!='.f3d' or not source.is_file():
+        raise ValueError('Не найден сохранённый локальный F3D этой модели')
+    previous=app.activeDocument; imported=None
+    if doc.isModified:
+        if not doc.save('Сохранение перед экспортом') or doc.isModified:
+            raise ValueError('Сохранение модели не завершено. Повторите экспорт после сохранения')
+        if not doc.dataFile or pathlib.Path(doc.dataFile.id).resolve()!=source.resolve():
+            raise ValueError('Путь модели изменился при сохранении. Повторите экспорт')
+        import SyncGuard,SyncBridge
+        SyncGuard.saved(str(source))
+        if SyncBridge.runtime:SyncBridge.runtime.enqueue_sync()
+    _clean_export_active=True
+    try:
+        # Work on the destination volume, so publishing the completed file is atomic.
+        # Never copy catalog metadata, ._xx files, or saved DataFile associations.
+        with tempfile.TemporaryDirectory(prefix='.export-source-',dir=str(source.parent)) as source_directory, tempfile.TemporaryDirectory(prefix='.fusion-export-',dir=str(directory)) as temporary:
+            staging=pathlib.Path(temporary);output=staging/name
+            # A hard link is the same saved NTFS file, not another F3D copy.
+            # A clean pathname avoids Fusion's catalog/sidecar lookup for the original name.
+            input_path=pathlib.Path(source_directory)/'model.f3d'
+            os.link(source,input_path)
+            if not os.path.samefile(source,input_path):raise ValueError('Не удалось связать сохранённый F3D для экспорта')
+            try:
+                imported=app.importManager.importToNewDocument(app.importManager.createFusionArchiveImportOptions(str(input_path)))
+                if not imported:raise ValueError('Не удалось открыть сохранённый F3D')
+                isolated=adsk.fusion.Design.cast(imported.products.itemByProductType('DesignProductType'))
+                if not isolated:raise ValueError('Сохранённый файл не содержит модель Fusion')
+                manager=isolated.exportManager;method,geometry_first=formats[extension]
+                creator=getattr(manager,method)
+                options=creator(isolated.rootComponent,str(output)) if geometry_first else creator(str(output),isolated.rootComponent)
+                if not options or not manager.execute(options) or not output.is_file() or not output.stat().st_size:
+                    raise ValueError('Переводчик не смог экспортировать сохранённый F3D')
+            finally:
+                if imported:
+                    imported.close(False);imported=None
+                if previous and previous.isValid:previous.activate()
+            if target.exists() and not payload.get('overwrite',False):raise ValueError('Файл появился во время экспорта; замена отменена')
+            os.replace(output,target)
+        logging.getLogger('FusionPrivateServer').info('Saved F3D export completed: source=%s destination=%s',source,target)
+        return {'ok':True,'path':str(target)}
+    finally:
+        _clean_export_active=False
