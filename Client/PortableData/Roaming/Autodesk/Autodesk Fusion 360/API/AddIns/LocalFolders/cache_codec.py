@@ -64,6 +64,34 @@ def folder_container(data):
         raise ValueError('Cache round-trip failed')
     if len({d['key'] for d,_,_ in found})!=len(found):raise ValueError('Duplicate folder IDs')
     return found,start,end
+def local_folder_path(records,folder):
+    """Resolve a virtual catalog path, never a Windows installation directory.
+
+    Native/synchronized local folders can legitimately have no virtual path.
+    Preserve that state if no unambiguous project prefix is available.
+    """
+    byid={d['key']:d for d in records};current=folder;names=[];seen=set()
+    project=folder['0x68']
+    while True:
+        if current['key'] in seen:raise ValueError('Обнаружен цикл в структуре папок')
+        seen.add(current['key'])
+        if current['0x68']!=project:raise ValueError('Папка принадлежит другому проекту')
+        path=current.get('0x1f8','').rstrip('/')
+        if path:return '/'.join([path]+list(reversed(names)))
+        parent_id=current.get('0x48')
+        if not parent_id:break
+        names.append(current['0x88'])
+        if parent_id not in byid:raise ValueError('Родительская папка не найдена')
+        current=byid[parent_id]
+    marker='/group-'+project
+    prefixes=set()
+    for row in records:
+        if row['0x68']!=project:continue
+        path=row.get('0x1f8','');head,sep,tail=path.partition(marker)
+        if sep and (not tail or tail.startswith('/')):prefixes.add(head+marker)
+    if len(prefixes)!=1:return ''
+    return '/'.join([prefixes.pop()]+list(reversed(names)))
+
 def add_folder(data,parent_id,name):
     import copy,time,uuid,base64,unicodedata
     name=unicodedata.normalize('NFC',name.strip())
@@ -78,14 +106,10 @@ def add_folder(data,parent_id,name):
     if any(d['0x48']==parent_id and d['0x88'].casefold()==name.casefold() for d in records):
         raise ValueError('Папка с таким именем уже существует')
     now=int(time.time()*1000)
-    parent_path=parent['0x1f8'].rstrip('/')
-    if not parent_path:
-        paths={d['0x1f8'].split('/group-'+parent['0x68'])[0]+'/group-'+parent['0x68'] for d in records if '/group-'+parent['0x68'] in d['0x1f8']}
-        if len(paths)!=1:raise ValueError('Не удалось определить локальный путь проекта')
-        parent_path=paths.pop()
+    parent_path=local_folder_path(records,parent)
     urn='urn:adsk.wipprod:fs.folder:co.'+base64.urlsafe_b64encode(uuid.uuid4().bytes).decode().rstrip('=')
     new=copy.deepcopy(parent)
-    new.update({'key':urn,'0x28':urn,'0x48':parent_id,'0x88':name,'0xa8':'','0xc8':'','0xe8':now,'0x158':now,'0x1f0':now,'0x150':0,'0x1a8':0,'0x188':'','0x1b0':urn,'0x1d0':'','0x1f8':parent_path+'/'+name,'children':[],'files':[],'other':[],'0x2c8':''})
+    new.update({'key':urn,'0x28':urn,'0x48':parent_id,'0x88':name,'0xa8':'','0xc8':'','0xe8':now,'0x158':now,'0x1f0':now,'0x150':0,'0x1a8':0,'0x188':'','0x1b0':urn,'0x1d0':'','0x1f8':parent_path+'/'+name if parent_path else '','children':[],'files':[],'other':[],'0x2c8':''})
     new['0x168']=parent['0x168'].replace(parent_id,urn)
     parent['children'].append(urn)
     parent['0xe8']=now

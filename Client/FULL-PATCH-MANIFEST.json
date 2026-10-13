@@ -1,16 +1,16 @@
 {
-  "version": "2026.10.07-preview.1",
+  "version": "2026.10.13-preview.1",
   "target": "Fusion Portable 2703.1.20 x64 300726",
   "files": [
     {
       "path": "BUGREPORT.md",
-      "bytes": 6661,
-      "sha256": "3fb4aaee54183c88af6429013e2b9bccb2e3eb95524a4de4543b1c32bc9d309d"
+      "bytes": 7356,
+      "sha256": "22853eb890c54e5e26aaa9801db3e0497dd64581fb7f52baf62444bb00523e94"
     },
     {
       "path": "CHANGELOG.md",
-      "bytes": 13900,
-      "sha256": "0a1c21569c9d9163193018d1070e604838e72cb22a3238a4b39f2c7f4e334eab"
+      "bytes": 15988,
+      "sha256": "ce11d726c8261bedc45084ca1db7b2eb4a94ce45c0f6b7c6e6fc9fc8ab886376"
     },
     {
       "path": "PortableData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/HomeModels/HomeModels.manifest",
@@ -84,8 +84,8 @@
     },
     {
       "path": "PortableData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/LocalFolders/NativeServerMenu.dll",
-      "bytes": 134144,
-      "sha256": "fcc8d6d07bb09bd6aad77adc1618c6aae29faa668306e9a8e24d3f0976847aef"
+      "bytes": 139264,
+      "sha256": "f2ffbfc9e871f34a12fcd9b615d3d886aa700e7e0048b5fc5a0c8e0b28571bba"
     },
     {
       "path": "PortableData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/LocalFolders/ProjectExport.py",
@@ -149,8 +149,8 @@
     },
     {
       "path": "PortableData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/LocalFolders/cache_codec.py",
-      "bytes": 5640,
-      "sha256": "4ba9438a157fd6fe444feefa0050934882627a787deaeadda283f199f229cffa"
+      "bytes": 6715,
+      "sha256": "209884cc7b770147173653a672c5848e8791710728efa15decfdeccb696081b9"
     },
     {
       "path": "PortableData/Roaming/Autodesk/Autodesk Fusion 360/API/AddIns/LocalFolders/config.json",
@@ -179,8 +179,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 16778,
-      "sha256": "b3e696a3320ac37f62b24b9876b2998fc13044995685b961a87d2aa017aaaacc"
+      "bytes": 17196,
+      "sha256": "889c4b2e3f81f4f9fe76c80fbb59f818aaab729c33d7e1832ea0531201d30835"
     },
     {
       "path": "bin/FusionCDEHostApps/fusion-home-tab/bundle.4cef078ae5b7b7298063.js",
